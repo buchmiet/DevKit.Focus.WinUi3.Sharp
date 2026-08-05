@@ -70,7 +70,8 @@ work/
 Then run on Windows:
 
 ```powershell
-dotnet test tests/DevKit.Focus.WinUi3.Sharp.Tests/DevKit.Focus.WinUi3.Sharp.Tests.csproj -c Release
+dotnet build tests/DevKit.Focus.WinUi3.Sharp.Tests/DevKit.Focus.WinUi3.Sharp.Tests.csproj -c Release
+dotnet run --project tests/DevKit.Focus.WinUi3.Sharp.Tests/DevKit.Focus.WinUi3.Sharp.Tests.csproj -c Release --no-build
 ```
 
 When the sibling core project is absent, the adapter falls back to the `DevKit.Focus.Sharp` NuGet package version configured by `DevKitFocusSharpVersion`.
