@@ -67,12 +67,14 @@ work/
   DevKit.Focus.WinUi3.Sharp/
 ```
 
-Then run on Windows:
+Compile and pack on Windows:
 
 ```powershell
 dotnet build tests/DevKit.Focus.WinUi3.Sharp.Tests/DevKit.Focus.WinUi3.Sharp.Tests.csproj -c Release
-dotnet run --project tests/DevKit.Focus.WinUi3.Sharp.Tests/DevKit.Focus.WinUi3.Sharp.Tests.csproj -c Release --no-build
+dotnet pack src/DevKit.Focus.WinUi3.Sharp/DevKit.Focus.WinUi3.Sharp.csproj -c Release -o artifacts/packages
 ```
+
+The test project is a compile-time contract gate. Meaningful focus verification requires a real activated WinUI window; use the adapter in the target application for the runtime smoke test.
 
 When the sibling core project is absent, the adapter falls back to the `DevKit.Focus.Sharp` NuGet package version configured by `DevKitFocusSharpVersion`.
 
