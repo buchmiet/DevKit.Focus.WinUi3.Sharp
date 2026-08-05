@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net8.0-windows10.0.19041.0;net10.0-windows10.0.19041.0</TargetFrameworks>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <IsPackable>true</IsPackable>
+    <Description>WinUI 3 keyboard-focus scopes, XamlRoot-aware visual-tree inspection, DispatcherQueue scheduling, and window activation restoration for DevKit.Focus.Sharp.</Description>
+    <PackageTags>focus;keyboard;winui;winui3;windows-app-sdk;desktop;ui;devkit</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <UseWinUI>true</UseWinUI>
+    <WinUISDKReferences>false</WinUISDKReferences>
+    <EnableMsixTooling>false</EnableMsixTooling>
+    <WindowsPackageType>None</WindowsPackageType>
+    <AppxGeneratePriEnabled>false</AppxGeneratePriEnabled>
+    <AppxGeneratePrisForPortableLibrariesEnabled>false</AppxGeneratePrisForPortableLibrariesEnabled>
+    <EnableCoreMrtTooling>false</EnableCoreMrtTooling>
+    <DevKitFocusSharpVersion Condition="'$(DevKitFocusSharpVersion)' == ''">0.1.0-preview.1</DevKitFocusSharpVersion>
+    <DevKitFocusSharpProject Condition="'$(DevKitFocusSharpProject)' == ''">$(MSBuildThisFileDirectory)../../../DevKit.Focus.Sharp/src/DevKit.Focus.Sharp/DevKit.Focus.Sharp.csproj</DevKitFocusSharpProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4654" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.2.0" />
+  </ItemGroup>
+  <ItemGroup Condition="Exists('$(DevKitFocusSharpProject)')">
+    <ProjectReference Include="$(DevKitFocusSharpProject)" />
+  </ItemGroup>
+  <ItemGroup Condition="!Exists('$(DevKitFocusSharpProject)')">
+    <PackageReference Include="DevKit.Focus.Sharp" Version="$(DevKitFocusSharpVersion)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>

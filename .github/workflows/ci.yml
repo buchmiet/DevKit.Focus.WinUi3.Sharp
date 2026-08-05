@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: DevKit.Focus.WinUi3.Sharp
+      - uses: actions/checkout@v4
+        with:
+          repository: buchmiet/DevKit.Focus.Sharp
+          path: DevKit.Focus.Sharp
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - run: dotnet test DevKit.Focus.WinUi3.Sharp/tests/DevKit.Focus.WinUi3.Sharp.Tests/DevKit.Focus.WinUi3.Sharp.Tests.csproj -c Release
+      - run: dotnet pack DevKit.Focus.WinUi3.Sharp/src/DevKit.Focus.WinUi3.Sharp/DevKit.Focus.WinUi3.Sharp.csproj -c Release -o DevKit.Focus.WinUi3.Sharp/artifacts/packages

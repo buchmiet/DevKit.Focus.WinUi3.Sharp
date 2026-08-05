@@ -1,0 +1,20 @@
+<Project>
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <IsPackable>false</IsPackable>
+    <Version>0.1.0-preview.1</Version>
+    <Authors>Lukasz Buchmiet</Authors>
+    <Copyright>Copyright (c) 2026 Lukasz Buchmiet</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/buchmiet/DevKit.Focus.WinUi3.Sharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/buchmiet/DevKit.Focus.WinUi3.Sharp.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+</Project>
